@@ -2,7 +2,7 @@ import React from 'react';
 
 function Navbar() {
     return(
-        <h1> Learning app </h1>
+        <header className="c-navbar"> Learning app </header>
     )
 }
 
