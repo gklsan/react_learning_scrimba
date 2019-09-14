@@ -1,31 +1,15 @@
 import React from 'react';
 import TodoItem from "./TodoItem";
+import todosData from "../datas/todosData";
 
 function MainContent() {
-    let inputs = [
-        {
-            content: 'This is the first content'
-        },
-        {
-            content: "This is the second content"
-        },
-        {
-            content: "This is the third content"
-        },
-        {
-            content: "This is the fourth content"
-        },
-        {
-            content: "This is the fifth content"
-        }
-    ];
+    // const todoSorted = todosData.sort((a, b) => a.completed - b.completed); // Sorting based on completed
+    const todoItemComponents = todosData.map(function (todo) {
+        return <TodoItem key={todo.id} todo={todo}/>
+    });
     return(
         <div className="c-todo_list">
-            {
-                inputs.map((value, index) => {
-                    return <TodoItem key={index} content={value.content}/>
-                })
-            }
+            { todoItemComponents }
         </div>
     )
 }

@@ -2,9 +2,9 @@ import React from 'react';
 
 function TodoItem(props) {
     return (
-        <div className="c-todo_item">
-            <input type="checkbox" />
-            <p>{props.content}</p>
+        <div className="c-todo_item" style={{color: props.todo.completed ? 'lightgray' : 'green' }}>
+            <input type="checkbox" checked={props.todo.completed} />
+            <p>{props.todo.text}</p>
         </div>
     )
 }
