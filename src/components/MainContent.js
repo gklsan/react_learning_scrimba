@@ -8,14 +8,13 @@ class MainContent extends Component {
         this.state = {
             todoItems: todosData
         }
-        this.handleClickEvent = this.handleClickEvent.bind(this);
     }
 
     todoItemComponents() {
         return this.state.todoItems.map(item => <TodoItem key={item.id} todo={item} handleClickEvent={this.handleClickEvent}/>)
     }
 
-    handleClickEvent(id, isChecked) {
+    handleClickEvent = (id, isChecked) => {
         this.setState( prevState => {
             const updatedItems = prevState.todoItems.map(item => {
                 if(item.id === id){
