@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import TodoItem from "./TodoItem";
 import todosData from "../datas/todosData";
 
-function MainContent() {
-    // const todoSorted = todosData.sort((a, b) => a.completed - b.completed); // Sorting based on completed
-    const todoItemComponents = todosData.map(function (todo) {
-        return <TodoItem key={todo.id} todo={todo}/>
-    });
-    return(
-        <div className="c-todo_list">
-            { todoItemComponents }
-        </div>
-    )
+class MainContent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            todoItems: todosData
+        }
+    }
+
+    todoItemComponents() {
+        return this.state.todoItems.map(item => <TodoItem key={item.id} todo={item} />)
+    }
+
+    render() {
+        return (
+            <div className="c-todo_list">
+                {this.todoItemComponents()}
+            </div>
+        )
+    }
 }
 
 export default MainContent;
